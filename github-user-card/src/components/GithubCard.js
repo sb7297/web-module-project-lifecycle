@@ -15,6 +15,7 @@ class GithubCard extends React.Component {
   }
   
   componentDidMount() {
+    // First, we fetch the user's data...
     fetch("https://api.github.com/users/ibraheemdev")
     .then(resp => {
       if (!resp.ok) {
@@ -23,6 +24,7 @@ class GithubCard extends React.Component {
       return resp.json();
     })
     .then(data => {
+      // ...and set it to state, along with the followersUrl...
       this.setState({
         avatarUrl: data.avatar_url,
         username: data.login,
@@ -30,6 +32,8 @@ class GithubCard extends React.Component {
         followingCnt: data.following,
         followersUrl: data.followers_url
       }, () => {
+        // ...then, when the state is set, this callback gets called,
+        // getting our array of followers, using the url we fetched.
         fetch(this.state.followersUrl)
         .then(resp => {
           if (!resp.ok) {
