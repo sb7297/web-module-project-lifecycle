@@ -59,9 +59,11 @@ class GithubCard extends React.Component {
   }
 
   render() {
-    return (<div>
-      <div><img src={this.state.avatarUrl}></img></div>
-      <div>{this.state.username}</div>
+    return (<div className="w-1/2 border rounded-md mx-auto mt-4 shadow-lg px-4 py-2">
+      <div className="flex justify-between items-center">
+        <img className="w-1/6 rounded-full" src={this.state.avatarUrl}></img>
+        <div>{this.state.username}</div>
+      </div>
       <div>Followers: {this.state.followerCnt}</div>
       <div>Following: {this.state.followingCnt}</div>
       
