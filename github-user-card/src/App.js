@@ -1,4 +1,5 @@
 import React from 'react';
+import GithubCard from './components/GithubCard'; 
 
 class App extends React.Component {
   constructor() {
@@ -6,7 +7,7 @@ class App extends React.Component {
   }
 
   render() {
-    return (<div>Hello World!</div>);
+    return <GithubCard />
   }
 }
 
