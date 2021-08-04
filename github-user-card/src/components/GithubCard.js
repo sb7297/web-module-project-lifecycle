@@ -59,15 +59,26 @@ class GithubCard extends React.Component {
   }
 
   render() {
-    return (<div className="w-1/2 border rounded-md mx-auto mt-4 shadow-lg px-4 py-2">
-      <div className="flex justify-between items-center">
-        <img className="w-1/6 rounded-full" src={this.state.avatarUrl}></img>
-        <div>{this.state.username}</div>
+    return (<div className="w-1/3 border-2 rounded-md mx-auto mt-4 shadow-lg px-4 py-2">
+      <div className="flex justify-center space-x-4 items-center mb-2">
+        <img className="w-1/4 rounded-full" src={this.state.avatarUrl}></img>
+        <div className="text-3xl">{this.state.username}</div>
       </div>
-      <div>Followers: {this.state.followerCnt}</div>
-      <div>Following: {this.state.followingCnt}</div>
-      
-      {this.state.followers.map(user => <Follower key={user.id} user={user} />)} 
+      <div className="flex justify-center space-x-4 items-center text-center pb-2 my-2 border-b">
+        <div>
+          <div className="text-xl">{this.state.followerCnt}</div>
+          <div className="text-gray-500">Followers</div>
+        </div>
+        <div>
+          <div className="text-xl">{this.state.followingCnt}</div>
+          <div className="text-gray-500">Following</div>
+        </div>
+      </div>
+
+      <div className="space-y-3">
+        <h2 className="mx-auto text-center text-xl">Followers</h2>
+        {this.state.followers.map(user => <Follower key={user.id} user={user} />)} 
+      </div>
     </div>);
   }
 }

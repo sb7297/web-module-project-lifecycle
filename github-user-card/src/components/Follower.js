@@ -8,9 +8,9 @@ class Follower extends React.Component {
   render() {
     let { user } = this.props;
 
-    return(<div>
-      <div><img src={user ? user.avatarUrl : ""}></img></div>
-      <div>{user ? user.username : ""}</div>
+    return(<div className="flex justify-between items-center w-5/6 mx-auto">
+      <img className="rounded-full w-1/6" src={user ? user.avatarUrl : ""}></img>
+      <div className="text-lg">{user ? user.username : ""}</div>
     </div>);
   }
 }
